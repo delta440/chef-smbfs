@@ -14,7 +14,7 @@ Attributes
 ==========
 
 * `node['smbfs']['mounts']` - A map that describes zero or more cifs mounts. Used to drive the `attribtue_driven` recipe.
-
+* `node['smbfs']['auto_mount']` - Determins whether or not the mounts will be mounted at the end of the run, defaults to true
 Usage
 =====
 

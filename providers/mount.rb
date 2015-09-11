@@ -65,11 +65,13 @@ action :run do
   end
 
   # Mount the folder
-  mount new_resource.path do
-    device new_resource.cifs_path
-    fstype "cifs"
-    options options.join(',') unless options.empty?
-    # This order works, adds to fstab first then mounts it
-    action [:enable, :mount]
+  if node['smbfs']['auto_mount']
+    mount new_resource.path do
+      device new_resource.cifs_path
+      fstype "cifs"
+      options options.join(',') unless options.empty?
+      # This order works, adds to fstab first then mounts it
+      action [:enable, :mount]
+    end
   end
 end

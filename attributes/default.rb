@@ -15,3 +15,4 @@
 #
 
 default['smbfs']['mounts'] = Mash.new
+default['smbfs']['auto_mount'] = true
